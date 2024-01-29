@@ -6,9 +6,9 @@ class movieStore {
     }
 
 
-    addMovieToStore(id, movieName){
+    addMovieToStore(id, movieName, director, date_Uploaded = new Date().toLocaleDateString()){
 
-        return this.movies.push({id, movieName})
+        return this.movies.push({id, movieName, director, date_Uploaded  })
     }
 
     displayMovies(){
@@ -20,7 +20,9 @@ class movieStore {
         const present = this.moviesRented.find(movie => movie.id === id)
 
         if (findMovie===present){
-            return this.movies.filter((movie)=> movie.id !==id)
+            return this.movies.forEach(movie => { movie.filter((movies) => movies.id === id)
+                
+            });
         }
         if (!findMovie){
             return `Sorry! movies not in store!` 
@@ -79,8 +81,8 @@ class movieStore {
 }
 
 const MovieStore = new movieStore();
-MovieStore.addMovieToStore(1, 'The Slain')
-MovieStore.addMovieToStore(2, 'The wicked')
+MovieStore.addMovieToStore(1, 'The Slain', 'James')
+MovieStore.addMovieToStore(2, 'The wicked', 'Manny')
 
 
 console.log(MovieStore.displayMovies())
