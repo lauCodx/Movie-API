@@ -1,16 +1,23 @@
 class movieStore {
-    constructor(id, movieName, movieRented){
-        this.id = id;
-        this.aMovie = movieName;
-        this.movieRented = movieRented;
-
+    constructor(){
         this.movies =[];
     }
 
 
     addMovieToStore(id, movieName){
-        return this.movies.push(id, movieName)
+
+        return this.movies.push({id, movieName})
+    }
+
+    displayMovies(){
+        return this.movies;
     }
 
 
+
 }
+
+const MovieStore = new movieStore();
+MovieStore.addMovieToStore(1, 'The Slain')
+
+console.log(MovieStore.displayMovies())
