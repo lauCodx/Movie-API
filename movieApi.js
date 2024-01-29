@@ -16,7 +16,7 @@ class movieStore {
 
     checkIfMovieExist(id){
         const findMovie = this.movies.find(movie => movie.id === id);
-        const checkMovie = (!findMovie) ? `Sorry! movies not in store!` : {message: `Successful`}
+        const checkMovie = (!findMovie) ? `Sorry! movies not in store!` : {message: `Successful! the movie '${findMovie.movieName}' exist`}
         return checkMovie;
     }
 
@@ -28,4 +28,4 @@ const MovieStore = new movieStore();
 MovieStore.addMovieToStore(1, 'The Slain')
 
 console.log(MovieStore.displayMovies())
-console.log(MovieStore.checkIfMovieExist(2))
+console.log(MovieStore.checkIfMovieExist(1))
