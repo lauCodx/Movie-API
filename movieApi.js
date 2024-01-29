@@ -17,7 +17,7 @@ class movieStore {
 
     checkIfMovieExist(id){
         const findMovie = this.movies.find(movie => movie.id === id);
-        const present = this.moviesRented
+        const present = this.moviesRented.find(movie => movie.id === id)
 
         if (findMovie===present){
             return this.movies.filter((movie)=> movie.id===id)
@@ -51,6 +51,16 @@ class movieStore {
         return this.moviesRented;
     }
 
+    checkIfMovieIsRented(id){
+        const findMovie = this.moviesRented.find(movie => movie.id === id);
+        const movieR = (findMovie) ? `The '${findMovie.movieName}' is rented` : `'${findMovie.movieName}' is still available for rent`
+
+        return movieR;
+
+    }
+
+    // movieReturn()
+
 
 
 }
@@ -62,4 +72,6 @@ MovieStore.addMovieToStore(2, 'The wicked')
 console.log(MovieStore.displayMovies())
 console.log(MovieStore.checkIfMovieExist(1))
 console.log(MovieStore.rentMovie(1))
+console.log(MovieStore.rentMovie(2))
 console.log(MovieStore.showRentedMovies())
+console.log(MovieStore.checkIfMovieIsRented(1))
