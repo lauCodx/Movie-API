@@ -2,6 +2,7 @@ class movieStore {
     constructor(rented = false){
         this.rentedMovie = rented;
         this.movies =[];
+        this.moviesRented =[]
     }
 
 
@@ -29,7 +30,7 @@ class movieStore {
             return 'Movie is rented'
         }
         findMovie.rentMovie = true;
-        this.rentMovie.push({findMovie})
+        this.moviesRented.push({findMovie})
         return {success: true, message: `You have rented the movie '${findMovie.movieName}'`}
 
     }
