@@ -8,4 +8,9 @@ class movieStore {
     }
 
 
+    addMovieToStore(id, movieName){
+        return this.movies.push(id, movieName)
+    }
+
+
 }
