@@ -59,7 +59,20 @@ class movieStore {
 
     }
 
-    // movieReturn()
+    movieReturn(id){
+
+        const rented = this.moviesRented.find(movie => movie.id === id)
+        const findMovie = this.movies.find(movie => movie.id === id);
+        if (!rented && !findMovie){
+            return `Movie not in the movie store`
+        }
+
+        if (!rented) {
+            return 'Movie not rented'
+        }
+        this.moviesRented.filter((movie) => movie.id === id)
+        return `'${findMovie.movieName}' was returned Successfully`
+    }
 
 
 
@@ -69,9 +82,11 @@ const MovieStore = new movieStore();
 MovieStore.addMovieToStore(1, 'The Slain')
 MovieStore.addMovieToStore(2, 'The wicked')
 
+
 console.log(MovieStore.displayMovies())
 console.log(MovieStore.checkIfMovieExist(1))
 console.log(MovieStore.rentMovie(1))
 console.log(MovieStore.rentMovie(1))
 console.log(MovieStore.showRentedMovies())
 console.log(MovieStore.checkIfMovieIsRented(1))
+console.log(MovieStore.movieReturn(5))
