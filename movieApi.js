@@ -20,6 +20,20 @@ class movieStore {
         return checkMovie;
     }
 
+    rentMovie(id){
+        const findMovie = this.movies.find(movie => movie.id === id);
+        if (!findMovie){
+            return 'Sorry! movies not in store'
+        }
+        if (findMovie.rentedMovie){
+            return 'Movie is rented'
+        }
+        findMovie.rentMovie = true;
+        this.rentMovie.push({findMovie})
+        return {success: true, message: `You have rented the movie '${findMovie.movieName}'`}
+
+    }
+
 
 
 }
@@ -29,3 +43,4 @@ MovieStore.addMovieToStore(1, 'The Slain')
 
 console.log(MovieStore.displayMovies())
 console.log(MovieStore.checkIfMovieExist(1))
+console.log(MovieStore.rentMovie(2))
