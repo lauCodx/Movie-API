@@ -1,6 +1,6 @@
 class movieStore {
-    constructor(rented = false){
-        this.rentedMovie = rented;
+    constructor(){
+        // this.isRented = rented;
         this.movies =[];
         this.moviesRented =[]
     }
@@ -20,14 +20,14 @@ class movieStore {
         const present = this.moviesRented.find(movie => movie.id === id)
 
         if (findMovie===present){
-            return this.movies.filter((movie)=> movie.id===id)
+            return this.movies.filter((movie)=> movie.id !==id)
         }
         if (!findMovie){
             return `Sorry! movies not in store!` 
         }
 
         // const checkMovie = (!findMovie) ? : {message: `Successful! the movie '${findMovie.movieName}' is available`}
-        // this.checkIfMovieExist.rentedMovie = true;
+        // this.checkIfMovieExist.isRented = true;
         // const presentMovie = this.moviesRented.filter((movie)=> movie.id===id)
 
         return {message: `Successful! the movie '${findMovie.movieName}' is available`}  ;
@@ -35,13 +35,13 @@ class movieStore {
 
     rentMovie(id){
         const findMovie = this.movies.find(movie => movie.id === id);
-        if (!findMovie){
+        const isRented = this.moviesRented.find(movie => movie.id === id)
+        if (!findMovie ){
             return 'Sorry! movies not in store'
         }
-        if (findMovie.rentedMovie){
+        if (isRented){
             return 'Movie is rented'
         }
-        findMovie.rentedMovie = true;
         this.moviesRented.push(findMovie)
         return {success: true, message: `You have rented the movie '${findMovie.movieName}'`}
         
@@ -72,6 +72,6 @@ MovieStore.addMovieToStore(2, 'The wicked')
 console.log(MovieStore.displayMovies())
 console.log(MovieStore.checkIfMovieExist(1))
 console.log(MovieStore.rentMovie(1))
-console.log(MovieStore.rentMovie(2))
+console.log(MovieStore.rentMovie(1))
 console.log(MovieStore.showRentedMovies())
 console.log(MovieStore.checkIfMovieIsRented(1))
