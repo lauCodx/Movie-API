@@ -4,7 +4,7 @@ class MovieStore{
 
     }
 
-    loadMoviesInShelf(){
+    loadMoviesInShelf(products){
         for (let product of products){
             this.movieShelf.push(product)
         }

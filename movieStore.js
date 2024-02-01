@@ -1,4 +1,4 @@
-const moviesAPI = required("./moviesStore-Api.js");
+const moviesAPI = require("./movieApi.js");
 
 const api = new moviesAPI();
 
@@ -37,6 +37,11 @@ const product = [
 
 
 api.loadMoviesInShelf(product);
+
+const viewMovies = api.viewAllMovies();
+
+
+console.log({ viewMovies })
 
 
 
