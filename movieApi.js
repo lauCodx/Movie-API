@@ -27,7 +27,7 @@ class MovieStore{
 
         if(findIndex === -1) return 'Movie not Found'
 
-        const updates = object.keys(body);
+        const updates = Object.keys(body);
 
         updates.forEach((update) => (this.movieShelf[findIndex][update] = body[update]));
     }
