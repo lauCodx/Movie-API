@@ -23,7 +23,7 @@ class MovieStore{
     }
 
     updateMovie(id, body){
-        const findIndex = this.movieShelf.findIndex(movie.id === id);
+        const findIndex = this.movieShelf.findIndex((movie) => movie.id === id);
 
         if(findIndex === -1) return 'Movie not Found'
 
@@ -37,7 +37,7 @@ class MovieStore{
     }
 
     deleteMovie (id){
-        const findIndex = this.movieShelf.findIndex(movie.id === id);
+        const findIndex = this.movieShelf.findIndex((movie) => movie.id === id);
         if (findIndex === -1) return false;
 
         this.movieShelf.splice(findIndex, 1)
