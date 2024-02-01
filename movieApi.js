@@ -10,7 +10,7 @@ class MovieStore{
         }
     }
 
-    viewSingleMovie(){
+    viewSingleMovie(id){
         const movie = this.movieShelf.find(movie => movie.id ===id);
         if (!movie) return 'Movie not in store'
 
@@ -42,6 +42,16 @@ class MovieStore{
 
         this.movieShelf.splice(findIndex, 1)
         
+    }
+
+    rentMovie(id){
+        const findMovie = this.movieShelf.find((movie) => movie.id === id);
+
+        if (!findMovie) return 'Movie not in Store'
+
+        this.movieShelf.filter((movie) => movie.id === id)
+
+        return `${findMovie.name} movie has been rented out`
     }
 }
 

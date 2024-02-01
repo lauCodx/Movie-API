@@ -39,10 +39,20 @@ const product = [
 api.loadMoviesInShelf(product);
 
 const viewMovies = api.viewAllMovies();
-api.updateMovie(4, {name: 'By my side', quantity: 2})
-api.addASingleMovie(7, 'My King', 7)
+api.updateMovie(4, {name: 'By my side', quantity: 2});
+api.addASingleMovie(7, 'My King', 7);
+api.deleteMovie(6);
+
+if (api.rentMovie()){
+    api.deleteMovie()
+}
+
+const RentMovie = api.rentMovie(10)
 
 
+
+console.log({ viewMovies })
+console.log({ RentMovie })
 console.log({ viewMovies })
 
 
