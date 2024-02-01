@@ -32,8 +32,8 @@ class MovieStore{
         updates.forEach((update) => (this.movieShelf[findIndex][update] = body[update]));
     }
 
-    addASingleMovie(product){
-        this.movieShelf.push(product);
+    addASingleMovie(id, name, quantity){
+        this.movieShelf.push({id, name, quantity});
     }
 
     deleteMovie (id){

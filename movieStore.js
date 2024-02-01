@@ -40,6 +40,7 @@ api.loadMoviesInShelf(product);
 
 const viewMovies = api.viewAllMovies();
 api.updateMovie(4, {name: 'By my side', quantity: 2})
+api.addASingleMovie(7, 'My King', 7)
 
 
 console.log({ viewMovies })
