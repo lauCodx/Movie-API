@@ -15,34 +15,34 @@ class movieStore {
         return this.movies;
     }
 
+
     checkIfMovieExist(id){
         const findMovie = this.movies.find(movie => movie.id === id);
-        const present = this.moviesRented.find(movie => movie.id === id)
 
-        if (findMovie===present){
-            return this.movies.forEach(movie => { movie.filter((movies) => movies.id === id)
-                
-            });
-        }
         if (!findMovie){
             return `Sorry! movies not in store!` 
         }
 
-        // const checkMovie = (!findMovie) ? : {message: `Successful! the movie '${findMovie.movieName}' is available`}
-        // this.checkIfMovieExist.isRented = true;
-        // const presentMovie = this.moviesRented.filter((movie)=> movie.id===id)
-
-        return {message: `Successful! the movie '${findMovie.movieName}' is available`}  ;
+        return` Movie ${findMovie.movieName} exist` ;
     }
+
+
+     checkIfMovieIsRented(id){
+        const isRented = this.moviesRented.find(movie => movie.id === movieId)
+
+        if (this.moviesRented[isRented]){
+            throw new Error('This movie has already been rented')
+        }
+        return 'Movie Available for rent'
+     }
 
     rentMovie(id){
         const findMovie = this.movies.find(movie => movie.id === id);
-        const isRented = this.moviesRented.find(movie => movie.id === id)
         if (!findMovie ){
+            if (this.checkIfMovieIsRented){
+                return this.checkIfMovieIsRented();   
+            }
             return 'Sorry! movies not in store'
-        }
-        if (isRented){
-            return 'Movie is rented'
         }
         this.moviesRented.push(findMovie)
         return {success: true, message: `You have rented the movie '${findMovie.movieName}'`}
@@ -53,13 +53,13 @@ class movieStore {
         return this.moviesRented;
     }
 
-    checkIfMovieIsRented(id){
-        const findMovie = this.moviesRented.find(movie => movie.id === id);
-        const movieR = (findMovie) ? `The '${findMovie.movieName}' is rented` : `'${findMovie.movieName}' is still available for rent`
+    // checkIfMovieIsRented(id){
+    //     const findMovie = this.moviesRented.find(movie => movie.id === id);
+    //     const movieR = (findMovie) ? `The '${findMovie.movieName}' is rented` : `'${findMovie.movieName}' is still available for rent`
 
-        return movieR;
+    //     return movieR;
 
-    }
+    // }
 
     movieReturn(id){
 
@@ -85,10 +85,10 @@ MovieStore.addMovieToStore(1, 'The Slain', 'James')
 MovieStore.addMovieToStore(2, 'The wicked', 'Manny')
 
 
-console.log(MovieStore.displayMovies())
-console.log(MovieStore.checkIfMovieExist(1))
+// console.log(MovieStore.displayMovies())
+// console.log(MovieStore.checkIfMovieExist(1))
 console.log(MovieStore.rentMovie(1))
 console.log(MovieStore.rentMovie(1))
 console.log(MovieStore.showRentedMovies())
-console.log(MovieStore.checkIfMovieIsRented(1))
-console.log(MovieStore.movieReturn(5))
+// console.log(MovieStore.checkIfMovieIsRen ted(1))
+console.log(MovieStore.movieReturn())
